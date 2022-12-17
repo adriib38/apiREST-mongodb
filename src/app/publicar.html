@@ -23,17 +23,33 @@
                 </li>
             </ul>
 
+            <h1>Nueva publicación</h1>
+
+            <label>Contenido: </label>
+            <input type="text" id="contenido">
+            <br>
+            <label>Autor: </label>
+            <input type="text" id="autor">
+
+            <input type="button" id="publicar" value="Publicar">
+
             <script>
-                function publicar(){
-                    //Hacer un request a la API y obtener un objeto que contenga los datos
+                const el = document.getElementById("publicar");
+                el.addEventListener("click", Fpublicar);
+
+                function Fpublicar(){
+                    console.log("Publicando");
+                    let contenido = document.getElementById('contenido').value;
+                    let autor = document.getElementById('autor').value;
+
+                    console.log(contenido);
                     fetch(`http://localhost:3000/api/publications`, {
                         "method": "POST",
                         "headers": {
                             "Content-Type": "Application/json",
                         },
-                        "body": JSON.stringify({ author: "Adrian", content: "hola mundo", date: "kadawd"})
+                        "body": JSON.stringify({ author: autor, content: contenido, date: new Date()})
                     })
-                
                 }
         
 
