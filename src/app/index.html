@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <meta http-equiv="Content-type" content="application/x-www-form-urlencoded; charset=UTF-8"/>
 
-    <link type="text/css" rel="stylesheet" href="style.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="\style.css">
 </head>
     <body>
         <div class="content">
@@ -33,46 +33,7 @@
                 referrerpolicy="no-referrer">
             </script>
       
-            <script>
-        
-                const getUsers = async () => {
-                    //Hacer un request a la API y obtener un objeto que contenga los datos
-                    const res = await fetch(`http://localhost:3000/api/publications`, {
-                        "method": "GET",
-                        "headers": {
-                            "Content-Type": "Application/json",
-                        }
-                    })
-                    const data = await res.json();
-        
-                    printMuro(data);
-                }
-                getUsers();
-
-                function printMuro(publications){
-                    let muro = document.getElementById('muro');
-                    console.log(publications);
-
-                    for(publication of publications){
-                        let date = moment(publication.date).fromNow(); 
-                        muro.innerHTML += `
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                ${publication.author}
-                            </div>
-                            <div class="card-body">
-                                <blockquote class="blockquote mb-0">
-                                <p>${publication.content}.</p>
-                                <footer class="blockquote-footer"><cite title="Sourcer Title"></cite>${date}</footer>
-                                </blockquote>
-                            </div>
-                        </div>
-                        <br>
-                        `;
-                    };   
-                }
-            </script>
+            <script type="text/javascript" src="peticiones.js"></script>
         </div>
 
         <!-- JavaScript Bundle with Popper -->
